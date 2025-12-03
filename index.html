@@ -17,10 +17,11 @@
     <nav>
       <div class="logo"><img src="img/main_logo.png" alt=""></div>
       <ul>
-        <li><a href="#bud-project">PROJECT</a></li>
-        <li><a href="#bud-beats">BUD X BEATS</a></li>
+        <li><a href="#bud_project">PROJECT</a></li>
+        <li><a href="#bud_beats">BUD X BEATS</a></li>
         <li><a href="#about">ABOUT</a></li>
         <li><a href="#event">EVENT</a></li>
+        <!--         <li><img src="img/search.png" alt="search"></li> -->
       </ul>
     </nav>
   </header>
@@ -28,7 +29,7 @@
   <!-- Section 1: Hero Slider -->
   <section id="hero">
     <div class="slider">
-      <div class="slides-container">
+      <div class="slides_container">
         <div class="slide active">
           <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=1600&h=900&fit=crop"
             alt="Budweiser Beer">
@@ -55,9 +56,9 @@
 
 
   <!-- Section 2: BUD PROJECT -->
-  <section id="bud-project">
+  <section id="bud_project">
     <h2>BUD PROJECT</h2>
-    <div class="text-reveal">
+    <div class="text_reveal">
       <p>
         <span style="animation-delay: 0.1s">언제부터</span>
         <span style="animation-delay: 0.2s">우리가 음악을</span>
@@ -81,39 +82,50 @@
   <!-- Section 3: Gallery Slider -->
   <section id="gallery">
     <div class="gallery_slider">
-      <button class="slider-nav prev" onclick="changeGallerySlide(-1)">‹</button>
-      <div class="gallery-track">
+      <button class="slider_nav prev" onclick="changeAboutSlide(-1)">
+        <img src="img/prev_left.png" alt="prev_left">
+      </button>
+
+      <div class="gallery_track">
         <div class="gallery_slide">
-          <div class="gallery-item">
+          <div class="gallery_item">
             <img src="img/festival1.png" alt="Festival">
           </div>
-          <div class="gallery-item">
+          <div class="gallery_item">
             <img src="img/festival2.png" alt="Festival">
           </div>
-          <div class="gallery-item">
+          <div class="gallery_item">
             <img src="img/festival3.png" alt="Festival">
+          </div>
+          <div class="gallery_item">
+            <img src="img/festival4.png" alt="Festival">
           </div>
         </div>
         <div class="gallery_slide">
-          <div class="gallery-item">
+          <div class="gallery_item">
             <img src="img/festival1.png" alt="Festival">
           </div>
-          <div class="gallery-item">
+          <div class="gallery_item">
             <img src="img/festival2.png" alt="Festival">
           </div>
-          <div class="gallery-item">
+          <div class="gallery_item">
             <img src="img/festival3.png" alt="Festival">
+          </div>
+          <div class="gallery_item">
+            <img src="img/festival4.png" alt="Festival">
           </div>
         </div>
       </div>
-      <button class="slider-nav next" onclick="changeGallerySlide(1)">›</button>
+      <button class="slider_nav next" onclick="changeAboutSlide(1)">
+        <img src="img/prev_right.png" alt="prev_left">
+      </button>
     </div>
   </section>
 
-  <!-- Section 4: BUD BEATS -->
-  <section id="bud-beats">
+  <!-- Section 4: BUD BEATS artist -->
+  <section id="bud_beats">
     <h2>BUD X BEATS</h2>
-    <div class="artists-container">
+    <div class="artists_container">
       <div class="artist-card">
         <div class="artist-front">
           <img src="img/artist1.png" alt="Artist 1">
@@ -122,8 +134,6 @@
         </div>
         <div class="artist-info">
           <h3>DEAN</h3>
-          <p>YEAR-END PARTY</p>
-          <p>Ctrl | LIVE | BUDWEISER</p>
           <p>Bud Stage GO ▶</p>
         </div>
       </div>
@@ -150,7 +160,7 @@
         </div>
       </div>
     </div>
-    <div style="margin-top: 50px">
+    <div class="artist_btn">
       <a href="https://www.budweiser.kr/budxbeats/artist/" class="btn">GO TO ARTISTS</a>
     </div>
   </section>
@@ -159,7 +169,9 @@
   <section id="about">
     <h2>ABOUT BUDWEISER</h2>
     <div class="about-slider">
-      <button class="slider-nav prev" onclick="changeAboutSlide(-1)">‹</button>
+      <button class="slider_nav prev" onclick="changeAboutSlide(-1)">
+        <img src="img/prev_left.png" alt="prev_left">
+      </button>
       <div class="about-track">
         <div class="about-slide">
           <div class="product-showcase">
@@ -167,9 +179,11 @@
               <img src="img/beer01.png" alt="Budweiser Can">
             </div>
             <div class="product-info">
-              <h3>330ml, 병맥주 355ml/500ml 캔</h3>
-              <p>맑은 황금빛으로 보는 즐거움까지 더한 프리미엄 라거 입니다.</p>
-              <p>엄선한 보리와 쌀을 조화롭게 배합하고 비치우드 숙성 공법으로 신선하고 부드러운 맛을 자랑합니다.</p>
+              <h3>330ml, 부담 없는 시그니처 한 캔</h3>
+              <div class="txt_box">
+                <p>작은 용량으로도 버드와이저의</p>
+                <p>깊은 풍미와 청량감을 가볍게 즐길 수 있습니다.</p>
+              </div>
               <a href="https://buly.kr/AlleW5j" class="btn">BUY NOW</a>
             </div>
           </div>
@@ -214,7 +228,9 @@
           </div>
         </div>
       </div>
-      <button class="slider-nav next" onclick="changeAboutSlide(1)">›</button>
+      <button class="slider_nav next" onclick="changeAboutSlide(1)">
+        <img src="img/prev_right.png" alt="prev_left">
+      </button>
     </div>
   </section>
 
@@ -253,7 +269,10 @@
   <section id="sns">
     <h2>SNS</h2>
     <div class="sns-slider">
-      <button class="slider-nav prev" onclick="changeSnsSlide(-1)">‹</button>
+      <button class="slider_nav prev" onclick="changeAboutSlide(-1)">
+        <img src="img/prev_left.png" alt="prev_left">
+      </button>
+
       <div class="sns-track">
         <div class="sns-slide">
           <div class="sns-item">
@@ -284,7 +303,9 @@
           </div>
         </div>
       </div>
-      <button class="slider-nav next" onclick="changeSnsSlide(1)">›</button>
+      <button class="slider_nav next" onclick="changeAboutSlide(1)">
+        <img src="img/prev_right.png" alt="prev_left">
+      </button>
     </div>
   </section>
 
@@ -379,7 +400,7 @@
 
     // Gallery Slider
     let galleryIndex = 0;
-    const galleryTrack = document.querySelector('.gallery-track');
+    const galleryTrack = document.querySelector('.gallery_track');
     const gallerySlides = document.querySelectorAll('.gallery_slide');
 
     function changeGallerySlide(direction) {
