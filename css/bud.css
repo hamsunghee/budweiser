@@ -1,0 +1,606 @@
+@font-face {
+    font-family: 'Wave';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/WavvePADO-Regular.woff2')
+        format('woff2');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #e30613;
+}
+
+/* Section 1: Hero Slider */
+#hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+.slide video {
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+}
+.slide img {
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #e30613;
+}
+
+/* Section 2: BUD PROJECT */
+#bud-project {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+#bud-project h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.text-reveal {
+    font-size: 24px;
+    line-height: 1.8;
+    overflow: hidden;
+}
+
+.text-reveal span {
+    font-family: 'Wave';
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: revealText 0.8s forwards;
+    font-size: 40px;
+}
+.text-reveal .big {
+    font-size: 50px;
+}
+
+@keyframes revealText {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section 3: Gallery Grid Slider */
+#gallery {
+    padding: 100px 50px;
+    position: relative;
+}
+
+.gallery-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.gallery-slide {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.slider-nav:hover {
+    background: #d4d4d42f;
+    border: 1px solid #fff;
+}
+
+.slider-nav.prev {
+    left: 10px;
+}
+
+.slider-nav.next {
+    right: 10px;
+}
+
+/* Section 4: BUD BEATS */
+#bud-beats {
+    padding: 100px 50px;
+    background: #111;
+    text-align: center;
+}
+
+#bud-beats h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.artists-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.artist-card {
+    position: relative;
+    /*     width: 250px; */
+    cursor: pointer;
+    perspective: 1000px; /* 원근감 */
+}
+
+.artist-front {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.artist-front img {
+    /*     width: 100%;
+    height: 100%; */
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.artist-card:hover .artist-front img {
+    transform: rotateY(180deg);
+}
+
+.vinyl-back {
+    position: absolute;
+    left: 150px;
+    bottom: 60px;
+    /*     width: 100%;
+    height: 100%; */
+    width: 450px;
+    height: 450px;
+    background: url(/img/lp_img.png) no-repeat center center;
+    opacity: 0;
+    transition: opacity 0.6s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spin 3s linear infinite;
+    z-index: -1;
+}
+
+.artist-card:hover .vinyl-back {
+    opacity: 1;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.artist-info {
+    margin-top: 20px;
+}
+
+.artist-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Section 5: About Budweiser Slider */
+#about {
+    padding: 100px 50px;
+    text-align: center;
+    position: relative;
+}
+
+#about h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.about-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.about-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.product-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.product-image img {
+    max-width: 300px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.product-info {
+    max-width: 400px;
+    text-align: left;
+}
+
+.product-info p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #e30613;
+    border-color: #e30613;
+}
+
+/* Section 6: Event Countdown */
+#event {
+    padding: 100px 50px;
+    background: #0a0a0a;
+    text-align: center;
+}
+
+#event h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.event-title {
+    font-size: 80px;
+    /*     font-weight: bold; */
+    margin-bottom: 30px;
+    line-height: 1.2;
+    font-family: 'PaybAck', sans-serif;
+}
+
+/* 네온 */
+#event .countdown-number {
+    color: #fff;
+    text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 16px #b10000, 0 0 32px #b10000,
+        0 0 64px #b10000, 0 0 96px #b10000;
+    animation: countdown_neon 2.5s ease-in-out infinite alternate;
+}
+
+/* 깜박 */
+@keyframes countdown_neon {
+    0% {
+        text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 8px #b10000,
+            0 0 16px #b10000, 0 0 32px #b10000, 0 0 48px #b10000;
+        opacity: 0.9;
+    }
+
+    50% {
+        text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 20px #b10000,
+            0 0 40px #b10000, 0 0 80px #b10000, 0 0 120px #b10000;
+        opacity: 1;
+    }
+
+    100% {
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 12px #b10000,
+            0 0 24px #b10000, 0 0 48px #b10000, 0 0 72px #b10000;
+        opacity: 0.95;
+    }
+}
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 50px 0;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.countdown-number {
+    font-size: 64px;
+    color: #fff;
+}
+
+.countdown-label {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #888;
+}
+
+.event-info {
+    margin: 30px 0;
+    font-size: 16px;
+}
+
+/* Section 7: SNS Gallery Slider */
+#sns {
+    padding: 100px 50px;
+    position: relative;
+}
+
+#sns h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sns-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.sns-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.sns-slide {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.sns-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+.sns-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s, filter 0.5s;
+}
+
+.sns-item:hover img {
+    transform: scale(1.15);
+    filter: brightness(0.7);
+}
+
+/* Footer */
+footer {
+    padding: 50px;
+    background: #0a0a0a;
+    border-top: 1px solid #222;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e30613;
+}
+
+.footer-info {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    max-width: 1000px;
+}
+
+.social {
+    display: flex;
+    gap: 15px;
+}
+
+.social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social a:hover {
+    background: #e30613;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #b10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.scroll-top.show {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .gallery-slide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sns-slide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .countdown {
+        gap: 20px;
+        font-size: 32px;
+    }
+
+    .event-title {
+        font-size: 32px;
+    }
+
+    .about-slide {
+        flex-direction: column;
+    }
+}
