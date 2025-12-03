@@ -84,7 +84,7 @@ nav a:hover {
     object-fit: cover;
 }
 
-.hero-content {
+.hero_content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -93,13 +93,13 @@ nav a:hover {
     z-index: 10;
 }
 
-.hero-content h1 {
+.hero_content h1 {
     font-size: 48px;
     margin-bottom: 20px;
     letter-spacing: 2px;
 }
 
-.slider-dots {
+.slider_dots {
     position: absolute;
     bottom: 30px;
     left: 50%;
@@ -164,7 +164,7 @@ nav a:hover {
     position: relative;
 }
 
-.gallery-slider {
+.gallery_slider {
     position: relative;
     overflow: hidden;
 }
@@ -174,7 +174,7 @@ nav a:hover {
     transition: transform 0.5s ease;
 }
 
-.gallery-slide {
+.gallery_slide {
     min-width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -389,19 +389,36 @@ nav a:hover {
 
 /* Section 6: Event Countdown */
 #event {
+    position: relative;
     padding: 100px 50px;
-    background: #0a0a0a;
     text-align: center;
 }
+.event_img {
+    position: absolute;
+    right: 200px;
+    bottom: 50px;
+    width: 350px;
+    animation: float 3s ease-in-out infinite;
+}
 
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
 #event h2 {
     font-size: 36px;
     margin-bottom: 30px;
 }
 
-.event-title {
+.event_title {
     font-size: 80px;
-    /*     font-weight: bold; */
     margin-bottom: 30px;
     line-height: 1.2;
     font-family: 'PaybAck', sans-serif;
@@ -563,7 +580,7 @@ footer {
     background: #e30613;
 }
 
-.scroll-top {
+.scroll_top {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -578,12 +595,12 @@ footer {
     transition: opacity 0.3s;
 }
 
-.scroll-top.show {
+.scroll_top.show {
     opacity: 1;
 }
 
 @media (max-width: 768px) {
-    .gallery-slide {
+    .gallery_slide {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -596,7 +613,7 @@ footer {
         font-size: 32px;
     }
 
-    .event-title {
+    .event_title {
         font-size: 32px;
     }
 
