@@ -28,17 +28,19 @@
   <!-- Section 1: Hero Slider -->
   <section id="hero">
     <div class="slider">
-      <div class="slide active">
-        <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=1600&h=900&fit=crop"
-          alt="Budweiser Beer">
-        <!--                 <video src="img/bud1.mp4" autoplay loop muted playsinline>
-                </video> -->
-      </div>
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=1600&h=900&fit=crop" alt="Beer in Ice">
-      </div>
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=1600&h=900&fit=crop" alt="Beer Party">
+      <div class="slides-container">
+        <div class="slide active">
+          <img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=1600&h=900&fit=crop"
+            alt="Budweiser Beer">
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=1600&h=900&fit=crop"
+            alt="Beer in Ice">
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=1600&h=900&fit=crop"
+            alt="Beer Party">
+        </div>
       </div>
     </div>
     <div class="hero_content">
@@ -50,6 +52,7 @@
       <span class="dot"></span>
     </div>
   </section>
+
 
   <!-- Section 2: BUD PROJECT -->
   <section id="bud-project">
@@ -331,6 +334,7 @@
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => showSlide(index));
     });
+
 
     // Countdown Timer
     function updateCountdown() {
