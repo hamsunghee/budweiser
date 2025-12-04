@@ -18,8 +18,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Header */
-header {
+/* header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -51,6 +50,102 @@ nav a {
 
 nav a:hover {
     color: #e30613;
+} */
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+/* 숨김 상태 */
+#header.hide {
+    transform: translateY(-100%);
+}
+
+.nav_wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.nav_pill {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 100px;
+    padding: 16px 40px;
+    width: 80%;
+    max-width: 1100px;
+}
+
+.logo img {
+    height: 32px;
+    display: block;
+    margin-right: 30px;
+}
+
+.nav_pill ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav_pill li {
+    margin: 0 10px;
+}
+
+.nav_pill a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav_pill a:hover {
+    color: #e30613;
+}
+
+/* 검색 아이콘 */
+.icon_search img {
+    width: 22px;
+    display: block;
+}
+
+/* 메인 영역 여백 (헤더 높이만큼) */
+main {
+    padding-top: 90px;
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+    .nav_pill {
+        padding: 10px 20px;
+        width: 90%;
+    }
+
+    .logo img {
+        height: 26px;
+        margin-right: 15px;
+    }
+
+    .nav_pill a {
+        font-size: 14px;
+    }
 }
 
 /* Section 1: Hero Slider */
@@ -132,6 +227,32 @@ nav a:hover {
 }
 
 /* Section 2: BUD PROJECT */
+/* 
+.text_reveal {
+    font-size: 24px;
+    line-height: 1.8;
+    overflow: hidden;
+}
+
+.text_reveal span {
+    font-family: 'Wave';
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: revealText 0.8s forwards;
+    font-size: 40px;
+}
+.text_reveal .big {
+    font-size: 50px;
+}
+
+@keyframes revealText {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
+/* test1 */
 #bud_project {
     padding: 100px 50px;
     text-align: center;
@@ -157,6 +278,7 @@ nav a:hover {
     animation: revealText 0.8s forwards;
     font-size: 40px;
 }
+
 .text_reveal .big {
     font-size: 50px;
 }
@@ -166,6 +288,78 @@ nav a:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/*  */
+#bud_project {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+#bud_project h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+/* test333 */
+#bud_project {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+#bud_project h2 {
+    font-size: 40px;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+/* 전체 래퍼 */
+.fill-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Wave';
+}
+
+/* 한 줄 단위 컨테이너 */
+.fill-line {
+    position: relative;
+    display: inline-block;
+    font-size: 40px;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* 마지막 줄만 크게 */
+.fill-last {
+    font-size: 55px;
+}
+
+/* 윤곽선 텍스트 */
+.fill-outline {
+    position: relative;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    z-index: 1;
+}
+
+/* 채워지는 마스크 상자 */
+.fill-mask {
+    position: absolute;
+    inset: 0;
+    overflow: hidden; /* width 로 잘라냄 */
+    width: 0%; /* JS로 0 → 100% */
+    z-index: 2;
+}
+
+/* 실제 흰색 글자 */
+.fill-text {
+    color: #fff;
+    -webkit-text-stroke: 0;
+    white-space: nowrap;
 }
 
 /* Section 3: Gallery Grid Slider */
