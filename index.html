@@ -63,7 +63,12 @@
             alt="Beer Party">
         </div>
       </div>
+
+      <!-- 좌우 버튼 추가 -->
+      <button class="hero_nav prev" id="heroPrev">&#10094;</button>
+      <button class="hero_nav next" id="heroNext">&#10095;</button>
     </div>
+
     <div class="hero_content">
       <h1>KING OF BEERS</h1>
     </div>
@@ -189,46 +194,38 @@
   <!-- Section 4: BUD BEATS artist -->
   <section id="bud_beats">
     <h2>BUD X BEATS</h2>
-    <div class="artists_container">
-      <div class="artist-card">
-        <div class="artist-front">
-          <img src="img/artist1.png" alt="Artist 1">
+
+    <div class="beats-wrap">
+      <!-- 왼쪽: 이미지 + LP -->
+      <div class="artists-col">
+        <div class="artist-card" data-name="DEAN" data-desc="YEAR-END PARTY · Ctrl LIVE BUDWEISER"
+          data-extra="Bud Stage GO ▶">
+          <div class="vinyl"></div>
+          <img class="artist-img" src="img/artist1.png" alt="DEAN">
         </div>
-        <div class="vinyl-back">
+
+        <div class="artist-card" data-name="SOGUM" data-desc="감성적인 보컬과 사운드로 채우는 밤"
+          data-extra="BUDX SPECIAL LIVE PERFORMANCE">
+          <div class="vinyl"></div>
+          <img class="artist-img" src="img/artist2.png" alt="SOGUM">
         </div>
-        <div class="artist-info">
-          <h3>DEAN</h3>
-          <p>Bud Stage GO ▶</p>
-        </div>
-      </div>
-      <div class="artist-card">
-        <div class="artist-front">
-          <img src="img/artist2.png" alt="Artist 2">
-        </div>
-        <div class="vinyl-back">
-        </div>
-        <div class="artist-info">
-          <h3>소금</h3>
-          <p>Bud Stage GO ▶</p>
-        </div>
-      </div>
-      <div class="artist-card">
-        <div class="artist-front">
-          <img src="img/artist3.png" alt="Artist 3">
-        </div>
-        <div class="vinyl-back">
-        </div>
-        <div class="artist-info">
-          <h3>키드밀리</h3>
-          <p>Bud Stage GO ▶</p>
+
+        <div class="artist-card" data-name="KID MILLI" data-desc="트렌디한 랩과 무드로 완성하는 스테이지"
+          data-extra="BUD STAGE · FESTIVAL LINE-UP">
+          <div class="vinyl"></div>
+          <img class="artist-img" src="img/artist3.png" alt="KID MILLI">
         </div>
       </div>
-    </div>
-    <div class="artist_btn">
-      <a href="https://www.budweiser.kr/budxbeats/artist/" class="btn">GO TO ARTISTS</a>
+
+      <!-- 오른쪽: 텍스트 -->
+      <div class="artist-detail">
+        <h3 id="artistName">DEAN</h3>
+        <p id="artistDesc">YEAR-END PARTY · Ctrl LIVE BUDWEISER</p>
+        <p id="artistExtra">Bud Stage GO ▶</p>
+        <span class="tag">BUD X BEATS LINE-UP</span>
+      </div>
     </div>
   </section>
-
   <!-- Section 5: About Budweiser Slider -->
   <section id="about">
     <h2>ABOUT BUDWEISER</h2>
@@ -430,34 +427,44 @@
       dots[currentSlide].classList.add('active');
     }
 
+    // 자동 슬라이드
     setInterval(() => {
       showSlide(currentSlide + 1);
     }, 4000);
 
+    // 점 클릭
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => showSlide(index));
     });
 
+    // 좌우 버튼 클릭
+    document.getElementById('heroPrev').addEventListener('click', () => {
+      showSlide(currentSlide - 1);
+    });
+    document.getElementById('heroNext').addEventListener('click', () => {
+      showSlide(currentSlide + 1);
+    });
 
-    // Countdown Timer
-    function updateCountdown() {
-      const targetDate = new Date('2025-12-31T00:00:00').getTime();
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+    /* artist */
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const cards = document.querySelectorAll('.artist-card');
+    const nameEl = document.getElementById('artistName');
+    const descEl = document.getElementById('artistDesc');
+    const extraEl = document.getElementById('artistExtra');
 
-      document.getElementById('days').textContent = String(days).padStart(2, '0');
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-    }
+    // 기본으로 첫 카드 활성화
+    if (cards[0]) cards[0].classList.add('active');
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+
+        nameEl.textContent = card.dataset.name || '';
+        descEl.textContent = card.dataset.desc || '';
+        extraEl.textContent = card.dataset.extra || '';
+      });
+    });
 
     // Scroll to Top Button
     const scrollTopBtn = document.querySelector('.scroll_top');
